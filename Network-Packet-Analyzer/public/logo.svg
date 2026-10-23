@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="gemini-bg-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#0369a1" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="band-cyan-top" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="50%" stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+
+    <linearGradient id="band-navy-bot" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0b1e42"/>
+      <stop offset="50%" stop-color="#172554"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+
+    <linearGradient id="band-mid" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+
+    <linearGradient id="ring-gradient-1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="50%" stop-color="#0099ff"/>
+      <stop offset="100%" stop-color="#00d4ff"/>
+    </linearGradient>
+
+    <linearGradient id="ring-gradient-2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+
+    <linearGradient id="arrow-stream" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="70%" stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+
+    <filter id="glow-bright" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <g transform="translate(0, -20)">
+    <!-- Background subtle network lattice nodes -->
+    <g opacity="0.35" stroke="#38bdf8" stroke-width="1.2">
+      <line x1="280" y1="130" x2="350" y2="80" />
+      <line x1="350" y1="80" x2="420" y2="100" />
+      <line x1="420" y1="100" x2="520" y2="120" />
+      <line x1="520" y1="120" x2="550" y2="190" />
+      <line x1="280" y1="130" x2="260" y2="210" />
+      <line x1="260" y1="210" x2="310" y2="290" />
+      <line x1="550" y1="190" x2="520" y2="280" />
+      <line x1="220" y1="360" x2="280" y2="400" />
+      <line x1="280" y1="400" x2="380" y2="420" />
+      <line x1="520" y1="280" x2="560" y2="350" />
+    </g>
+    <!-- Background lattice node dots -->
+    <g fill="#38bdf8" opacity="0.45">
+      <circle cx="280" cy="130" r="4" />
+      <circle cx="350" cy="80" r="3.5" />
+      <circle cx="420" cy="100" r="4" />
+      <circle cx="520" cy="120" r="3.5" />
+      <circle cx="550" cy="190" r="4.5" />
+      <circle cx="260" cy="210" r="3.5" />
+      <circle cx="520" cy="280" r="4" />
+      <circle cx="280" cy="400" r="3.5" />
+    </g>
+
+    <!-- Magnifying Glass Handle -->
+    <g transform="rotate(45, 430, 260)">
+      <rect x="520" y="246" width="90" height="32" rx="16" fill="#004d80" stroke="#0099ff" stroke-width="3" />
+      <rect x="525" y="251" width="80" height="22" rx="11" fill="#0284c7" />
+    </g>
+
+    <!-- Outer Concentric Radar Glass Ring -->
+    <circle cx="430" cy="230" r="130" fill="none" stroke="url(#ring-gradient-1)" stroke-width="26" />
+    <circle cx="430" cy="230" r="105" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.4" />
+    <circle cx="430" cy="230" r="88" fill="none" stroke="url(#ring-gradient-2)" stroke-width="16" />
+    <circle cx="430" cy="230" r="70" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="6 4" opacity="0.6" />
+
+    <!-- 3 Dynamic Curved Data Stream Ribbons from Left -->
+    <!-- Ribbon 1: Bottom Navy Stripe -->
+    <path d="M 230 330 L 260 300 Q 320 300 370 270 L 415 285 Q 350 330 275 330 Z" fill="#0b1d3a" />
+    <!-- Ribbon 2: Middle Cyan Stripe -->
+    <path d="M 205 295 L 245 260 Q 320 260 380 220 L 415 235 Q 340 295 260 295 Z" fill="url(#band-cyan-top)" />
+    <!-- Ribbon 3: Top Light Azure Stripe -->
+    <path d="M 225 255 L 255 225 Q 330 225 390 180 L 420 195 Q 350 255 270 255 Z" fill="#0284c7" />
+
+    <!-- Upper Right Forward Flow Stream Arrow with Packet Dots -->
+    <g>
+      <!-- Curved stream extending from center up-right -->
+      <path d="M 430 230 Q 480 200 520 195 Q 550 195 565 190 L 565 170 L 635 200 L 565 230 L 565 210 Q 545 215 510 215 Q 470 225 430 230 Z" 
+            fill="url(#arrow-stream)" stroke="#38bdf8" stroke-width="2" />
+      
+      <!-- Packet data cubes floating in forward stream -->
+      <rect x="475" y="198" width="10" height="10" rx="2" fill="#ffffff" filter="url(#glow-bright)" />
+      <rect x="515" y="188" width="12" height="12" rx="2.5" fill="#e0f2fe" />
+      <rect x="550" y="185" width="8" height="8" rx="2" fill="#ffffff" />
+    </g>
+
+    <!-- Central Hexagonal Focus Badge (Targeting Core) -->
+    <g transform="translate(425, 230)">
+      <!-- Hexagon shape with dark blue fill and cyan border -->
+      <polygon points="0,-42 36,-21 36,21 0,42 -36,21 -36,-21" 
+               fill="#0c2340" stroke="#00d4ff" stroke-width="6" stroke-linejoin="round" />
+      <polygon points="0,-36 30,-18 30,18 0,36 -30,18 -30,-18" 
+               fill="#0284c7" opacity="0.3" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round" />
+
+      <!-- High-contrast White Directional Arrow inside Hexagon -->
+      <path d="M -14 14 L 6 -6 L 6 -16 L -4 -16 L -4 -10 L 0 -10 L -16 6 Z" fill="#ffffff" />
+      <polygon points="12,-16 0,-16 12,-4" fill="#ffffff" />
+      <polygon points="10,-14 2,-14 10,-6" fill="#ffffff" />
+    </g>
+  </g>
+
+  <!-- Typography matching Gemini image: NETWORK PACKET / ANALYZER -->
+  <text x="400" y="475" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="900" font-size="38" letter-spacing="3" fill="#0f172a">
+    NETWORK PACKET
+  </text>
+  <text x="400" y="525" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="900" font-size="38" letter-spacing="3" fill="#0284c7">
+    ANALYZER
+  </text>
+</svg>

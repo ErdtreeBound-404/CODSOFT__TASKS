@@ -1,0 +1,6 @@
+{
+  "name": "Phishing Awareness Training Program",
+  "description": "Interactive cybersecurity training module, spot-the-phish simulator, case studies, and presentation slide deck for recognizing and combating phishing attacks.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

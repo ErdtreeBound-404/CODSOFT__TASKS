@@ -1,0 +1,54 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\Users\HP> python -m pytest tests/test_security.py -v
+=================================================================== test session starts ===================================================================
+platform win32 -- Python 3.13.2, pytest-9.1.1, pluggy-1.7.0 -- C:\Users\HP\AppData\Local\Programs\Python\Python313\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\HP
+plugins: platformdirs-4.13.5
+collected 0 items
+
+================================================================== no tests ran in 0.02s ==================================================================
+ERROR: file or directory not found: tests/test_security.py
+
+PS C:\Users\HP> cd "C:\Users\HP\Downloads\secure-code-assessment\secure-code-assessment\secure"
+PS C:\Users\HP\Downloads\secure-code-assessment\secure-code-assessment\secure> python -m pytest tests/test_security.py -v
+=========================== test session starts ===========================
+platform win32 -- Python 3.13.2, pytest-9.1.1, pluggy-1.7.0 -- C:\Users\HP\AppData\Local\Programs\Python\Python313\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\HP\Downloads\secure-code-assessment\secure-code-assessment\secure
+plugins: platformdirs-4.13.5
+collected 4 items
+
+tests/test_security.py::test_password_is_hashed PASSED               [ 25%]
+tests/test_security.py::test_user_cannot_read_another_users_note PASSED [ 50%]
+tests/test_security.py::test_csrf_rejects_post_without_token PASSED  [ 75%]
+tests/test_security.py::test_search_treats_input_as_data PASSED      [100%]
+
+============================ 4 passed in 0.83s ============================
+PS C:\Users\HP\Downloads\secure-code-assessment\secure-code-assessment\secure> python -m pytest tests/test_security.py -v
+=========================== test session starts ===========================
+platform win32 -- Python 3.13.2, pytest-9.1.1, pluggy-1.7.0 -- C:\Users\HP\AppData\Local\Programs\Python\Python313\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\HP\Downloads\secure-code-assessment\secure-code-assessment\secure
+plugins: platformdirs-4.13.5
+collected 4 items
+
+tests/test_security.py::test_password_is_hashed PASSED               [ 25%]
+tests/test_security.py::test_user_cannot_read_another_users_note PASSED [ 50%]
+tests/test_security.py::test_csrf_rejects_post_without_token PASSED  [ 75%]
+tests/test_security.py::test_search_treats_input_as_data PASSED      [100%]
+
+============================ 4 passed in 0.83s ============================
+PS C:\Users\HP\Downloads\secure-code-assessment\secure-code-assessment\secure> python -m bandit -r . -f txt -o ..\evidence\bandit_after.txt
+[main]  INFO    profile include tests: None
+[main]  INFO    profile exclude tests: None
+[main]  INFO    cli include tests: None
+[main]  INFO    cli exclude tests: None
+[main]  INFO    running on Python 3.13.2
+[text]  INFO    Text output written to file: ..\evidence\bandit_after.txt
+PS C:\Users\HP\Downloads\secure-code-assessment\secure-code-assessment\secure> notepad ..\evidence\bandit_after.txt
+PS C:\Users\HP\Downloads\secure-code-assessment\secure-code-assessment\secure> notepad ..\evidence\bandit_after.txt
+PS C:\Users\HP\Downloads\secure-code-assessment\secure-code-assessment\secure> notepad ..\REPORT.md
+PS C:\Users\HP\Downloads\secure-code-assessment\secure-code-assessment\secure>

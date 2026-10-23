@@ -1,0 +1,134 @@
+Run started:2026-10-22 19:30:54.399989+00:00
+
+Test results:
+>> Issue: [B105:hardcoded_password_string] Possible hardcoded password: 'test-key-only'
+   Severity: Low   Confidence: Medium
+   CWE: CWE-259 (https://cwe.mitre.org/data/definitions/259.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b105_hardcoded_password_string.html
+   Location: .\tests\test_security.py:11:47
+10	    monkeypatch.setattr(database, "DB_PATH", db_path)
+11	    application = create_app({"TESTING": True, "SECRET_KEY": "test-key-only", "WTF_CSRF_ENABLED": True})
+12	    yield application
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html
+   Location: .\tests\test_security.py:20:4
+19	    response = client.get(path)
+20	    assert response.status_code == 200
+21	    import re
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html
+   Location: .\tests\test_security.py:23:4
+22	    match = re.search(rb'name="csrf_token" value="([^"]+)"', response.data)
+23	    assert match, "CSRF token missing from form"
+24	    return match.group(1).decode()
+
+--------------------------------------------------
+>> Issue: [B107:hardcoded_password_default] Possible hardcoded password: 'long-enough-password'
+   Severity: Low   Confidence: Medium
+   CWE: CWE-259 (https://cwe.mitre.org/data/definitions/259.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b107_hardcoded_password_default.html
+   Location: .\tests\test_security.py:26:0
+25	
+26	def register(client, username, password="long-enough-password"):
+27	    token = csrf(client)
+28	    return client.post("/register", data={"username": username, "password": password, "csrf_token": token}, follow_redirects=True)
+29	
+
+--------------------------------------------------
+>> Issue: [B107:hardcoded_password_default] Possible hardcoded password: 'long-enough-password'
+   Severity: Low   Confidence: Medium
+   CWE: CWE-259 (https://cwe.mitre.org/data/definitions/259.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b107_hardcoded_password_default.html
+   Location: .\tests\test_security.py:30:0
+29	
+30	def login(client, username, password="long-enough-password"):
+31	    token = csrf(client, "/login")
+32	    return client.post("/login", data={"username": username, "password": password, "csrf_token": token}, follow_redirects=True)
+33	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html
+   Location: .\tests\test_security.py:38:4
+37	        row = db.execute("SELECT password_hash FROM users WHERE username = ?", ("alice",)).fetchone()
+38	    assert row["password_hash"] != "long-enough-password"
+39	    assert row["password_hash"].startswith("scrypt:") or row["password_hash"].startswith("pbkdf2:")
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html
+   Location: .\tests\test_security.py:39:4
+38	    assert row["password_hash"] != "long-enough-password"
+39	    assert row["password_hash"].startswith("scrypt:") or row["password_hash"].startswith("pbkdf2:")
+40	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html
+   Location: .\tests\test_security.py:52:4
+51	    response = client.get(f"/note/{note_id}")
+52	    assert response.status_code == 404
+53	
+
+--------------------------------------------------
+>> Issue: [B105:hardcoded_password_string] Possible hardcoded password: 'long-enough-password'
+   Severity: Low   Confidence: Medium
+   CWE: CWE-259 (https://cwe.mitre.org/data/definitions/259.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b105_hardcoded_password_string.html
+   Location: .\tests\test_security.py:55:67
+54	def test_csrf_rejects_post_without_token(app, client):
+55	    response = client.post("/register", data={"username": "alice", "password": "long-enough-password"})
+56	    assert response.status_code == 400
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html
+   Location: .\tests\test_security.py:56:4
+55	    response = client.post("/register", data={"username": "alice", "password": "long-enough-password"})
+56	    assert response.status_code == 400
+57	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html
+   Location: .\tests\test_security.py:62:4
+61	    response = client.get("/notes?q=%27%20OR%201%3D1--")
+62	    assert response.status_code == 200
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 185
+	Total lines skipped (#nosec): 0
+	Total potential issues skipped due to specifically being disabled (e.g., #nosec BXXX): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0
+		Low: 11
+		Medium: 0
+		High: 0
+	Total issues (by confidence):
+		Undefined: 0
+		Low: 0
+		Medium: 4
+		High: 7
+Files skipped (0):
